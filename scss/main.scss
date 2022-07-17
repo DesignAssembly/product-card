@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+:root {
+    --dark-cyan: hsl(158, 36%, 37%);
+    --cream: hsl(30, 38%, 92%);
+    --very-dark-blue: hsl(212, 21%, 14%);
+    --dark-grayish-blue: hsl(228, 12%, 48%);
+    --white: hsl(0, 0%, 100%);
+
+
+    --base-text-size: 1rem;
+
+    --base-font: 'Montserrat';
+    --headline-font: 'Fraunces', serif;
+
+    --font-ligt: 500;
+    --font-bold: 700;
+
+}
+
+// mixins
+
+$breakpoints: (
+    tablet: 48rem,
+    desktop: 80rem
+);
+
+@mixin breakpoint($breakpoint, $logic: false) {
+    @if($logic) {
+@media #{ $logic } and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+    } @else {
+        @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+    }
+}
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--cream);
+    font-family: var(--base-font), sans-serif;
+    line-height: 23px;
+    color: var(--dark-grayish-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 1rem;
+    -webit-font-smooting: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h2 {
+    font-family: var(--headline-font);
+    color: var(--very-dark-blue);
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card {
+    background: var(--white);
+    max-width: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    
+    @include breakpoint(tablet) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &__info {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.category {
+    font-size: 0.85714rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: .75rem;
+}
+.price {
+    display: flex;
+    align-items: center;
+}
+
+.price--discounted {
+    font-family: var(--headline-font);
+    color: var(--dark-cyan);
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.price--normal {
+    text-decoration: line-through;
+    margin-inline-start: 1.25rem;
+}
+
+.btn {
+    background-color: var(--dark-cyan);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-weight: var(--font-bold);
+    font-size: inherit;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.125rem;
+
+    img {
+        margin-inline-end: .5rem;
+    }
+}
