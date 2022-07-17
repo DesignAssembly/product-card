@@ -63,11 +63,18 @@ h2 {
     font-size: 2rem;
     line-height: 2rem;
     margin-bottom: 1rem;
+
+    @include breakpoint(tablet) {
+        margin-bottom: 1.25rem;
+    }
 }
 
 p {
     font-size: 0.875rem;
     margin-bottom: 1.25rem;
+    @include breakpoint(tablet) {
+        padding: 1.875rem;
+    }
 }
 
 img {
@@ -88,10 +95,14 @@ img {
     }
 
     &__info {
-        padding: 24px;
+        padding: 1.25rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        @include breakpoint(tablet) {
+            padding: 2rem;
+        }
     }
 }
 
@@ -131,6 +142,10 @@ img {
     align-items: center;
     width: 100%;
     margin-top: 1.125rem;
+
+    @include breakpoint(tablet) {
+        margin-top: 1.875rem;
+    }
 
     img {
         margin-inline-end: .5rem;
