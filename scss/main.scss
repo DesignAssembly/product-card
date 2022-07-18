@@ -7,7 +7,7 @@
     --very-dark-blue: hsl(212, 21%, 14%);
     --dark-grayish-blue: hsl(228, 12%, 48%);
     --white: hsl(0, 0%, 100%);
-
+    --aqua-marine: #1A4032;
 
     --base-text-size: 1rem;
 
@@ -142,6 +142,10 @@ img {
     align-items: center;
     width: 100%;
     margin-top: 1.125rem;
+
+    &:hover {
+        background-color: var(--aqua-marine);
+    }
 
     @include breakpoint(tablet) {
         margin-top: 1.875rem;
